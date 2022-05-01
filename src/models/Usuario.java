@@ -11,13 +11,13 @@ public class Usuario {
     private LocalDate dataNascimento;
     private String email;
     private String cpf;
-    private static int id;
+    private int id;
     private int ddd;
     private int numeroCelular;
     private int idade;
+    private String senha;
     
 	public Usuario() {
-		id++;
 	}
 
 	public Usuario(String nome, String sobrenome, LocalDate dataNascimento, String email, String cpf, int ddd, int numeroCelular) {
@@ -28,7 +28,6 @@ public class Usuario {
 		this.cpf = cpf;
 		this.ddd = ddd;
 		this.numeroCelular = numeroCelular;
-		id++;
 	}
 
 	public String getNome() {
@@ -78,11 +77,39 @@ public class Usuario {
 	public void setNumeroCelular(int numeroCelular) {
 		this.numeroCelular = numeroCelular;
 	}
+	
+	public String getSobrenome() {
+		return sobrenome;
+	}
 
-	public static int getId() {
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
 		return id;
 	}
 	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public void calculaIdade() {
 		idade = (int)ChronoUnit.YEARS.between(dataNascimento, LocalDate.now());
 	}

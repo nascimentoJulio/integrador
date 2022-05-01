@@ -2,7 +2,7 @@ package models;
 
 import utils.enuns.TipoDespesa;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Despesa {
 
@@ -12,13 +12,13 @@ public class Despesa {
 
     private String descricao;
 
-    private LocalDate dataDespesa;
+    private Date dataDespesa;
 
     private double valorDespesa;
 
     private TipoDespesa tipoDespesa;
 
-    public Despesa(int id, String nome, String descricao, LocalDate dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
+    public Despesa(int id, String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -51,11 +51,11 @@ public class Despesa {
 		this.descricao = descricao;
 	}
 
-	public LocalDate getDataDespesa() {
+	public Date getDataDespesa() {
 		return dataDespesa;
 	}
 
-	public void setDataDespesa(LocalDate dataDespesa) {
+	public void setDataDespesa(Date dataDespesa) {
 		this.dataDespesa = dataDespesa;
 	}
 
