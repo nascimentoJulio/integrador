@@ -28,7 +28,7 @@ public class MetaDaoJDBC implements MetaDao {
 		obj.setId(rs.getInt("id"));
 		obj.setNome(rs.getString("nome"));
 		obj.setDescricao(rs.getString("descricao"));
-		obj.setTipoMeta(rs.getTipoMeta("tipo"));
+		obj.setTipo2(rs.getObject("tipo"));
 		obj.setValorNecessario(rs.getDouble("valor_necessario"));
 		obj.setDataInicio(rs.getDate("data_comeco"));
 		obj.setDataConclusao(rs.getDate("data_conclusao"));
@@ -59,7 +59,7 @@ public class MetaDaoJDBC implements MetaDao {
 			
 			st.setString(1, obj.getNome());
 			st.setString(2, obj.getDescricao());
-			st.setTipoMeta(3, obj.getTipo());
+			st.setObject(3, obj.getTipo());
 			st.setDouble(4, obj.getValorNecessario());
 			st.setDate(5, obj.getDataInicio());
 			st.setDate(6, obj.getDataConclusao());
@@ -97,7 +97,7 @@ public class MetaDaoJDBC implements MetaDao {
 			
 			st.setString(1, obj.getNome());
 			st.setString(2, obj.getDescricao());
-			st.setTipoMeta(3, obj.getTipo());
+			st.setObject(3, obj.getTipo());
 			st.setDouble(4, obj.getValorNecessario());
 			st.setDate(5, obj.getDataInicio());
 			st.setDate(6, obj.getDataConclusao());

@@ -48,6 +48,10 @@ public class Receita {
 	public void setTipoReceita(TipoReceita tipoReceita) {
 		this.tipoReceita = tipoReceita;
 	}
+	
+	public void setTipoReceita2(Object tipoReceita) {
+		this.tipoReceita = (TipoReceita) tipoReceita;
+	}
 
 	public double getValorReceita() {
 		return valorReceita;

@@ -1,6 +1,7 @@
 package utils.layouts;
 
 public class Console {
+	
     public static void imprimirMenuInicial() {
         imprimirTracos();
         System.out.println("|                 GAXTOS                   |");
@@ -15,7 +16,47 @@ public class Console {
         imprimirTracos();
 
     }
+    
+    public static void imprimirOpcao1() {
+    	imprimirTracos();
+    	System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("|   Insira seu e-mail e sua senha abaixo   |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+    }
+    
+    public static void imprimirOpcao2() {
+    	imprimirTracos();
+    	System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("|         Preencha os dados abaixo:        |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+    }
+    
+    public static void imprimirOpcao3() {
+    	imprimirTracos();
+    	System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("|   Obrigado por usar GAXTOS, até breve!   |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+    }
 
+    
+    
+    
+    
     private static void imprimirTracos() {
         System.out.println("|==========================================|");
     }

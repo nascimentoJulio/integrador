@@ -52,6 +52,10 @@ public class Investimento {
 	public void setTipoInvestimento(TipoInvestimento tipoInvestimento) {
 		this.tipoInvestimento = tipoInvestimento;
 	}
+	
+	public void setTipoInvestimento2(Object tipoInvestimento) {
+		this.tipoInvestimento = (TipoInvestimento) tipoInvestimento;
+	}
 
 	public double getValorInvestido() {
 		return valorInvestido;

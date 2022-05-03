@@ -28,7 +28,7 @@ public class InvestimentoDaoJDBC implements InvestimentoDao {
 		obj.setId(rs.getInt("id"));
 		obj.setNome(rs.getString("nome"));
 		obj.setDescricao(rs.getString("descricao"));
-		obj.setTipoInvestimento(rs.getTipoInvestimento("tipo_investimento"));
+		obj.setTipoInvestimento2(rs.getObject("tipo_investimento"));
 		obj.setValorInvestido(rs.getDouble("valor_investido"));
 		obj.setTaxaRendimento(rs.getDouble("taxa_investimento"));
 		obj.setDataInvestimento(rs.getDate("data_investimento"));
@@ -60,7 +60,7 @@ public class InvestimentoDaoJDBC implements InvestimentoDao {
 			
 			st.setString(2, obj.getDescricao());
 			
-			st.setTipoInvestimento(3, obj.getTipoInvestimento());
+			st.setObject(3, obj.getTipoInvestimento());
 			
 			st.setDouble(4, obj.getValorInvestido());
 			
@@ -105,7 +105,7 @@ public class InvestimentoDaoJDBC implements InvestimentoDao {
 			
 			st.setString(2, obj.getDescricao());
 			
-			st.setTipoInvestimento(3, obj.getTipoInvestimento());
+			st.setObject(3, obj.getTipoInvestimento());
 			
 			st.setDouble(4, obj.getValorInvestido());
 			

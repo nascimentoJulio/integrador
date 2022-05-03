@@ -28,7 +28,7 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 		obj.setId(rs.getInt("id"));
 		obj.setNome(rs.getString("nome"));
 		obj.setDescricao(rs.getString("descricao"));
-		obj.setTipoReceita(rs.getTipoReceita("tipo"));
+		obj.setTipoReceita2(rs.getObject("tipo"));
 		obj.setValorReceita(rs.getDouble("valor"));
 		obj.setDataRecebimento(rs.getDate("data_recebimento"));
 		obj.setUsuario(usuario);
@@ -60,7 +60,7 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 			
 			st.setString(2, obj.getDescricao());
 			
-			st.setTipoReceita(3, obj.getTipoReceita());
+			st.setObject(3, obj.getTipoReceita());
 			
 			st.setDouble(4, obj.getValorReceita());
 			
@@ -103,7 +103,7 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 			
 			st.setString(2, obj.getDescricao());
 			
-			st.setTipoReceita(3, obj.getTipoReceita());
+			st.setObject(3, obj.getTipoReceita());
 			
 			st.setDouble(4, obj.getValorReceita());
 			

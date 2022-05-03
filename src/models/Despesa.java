@@ -17,8 +17,11 @@ public class Despesa {
     private double valorDespesa;
 
     private TipoDespesa tipoDespesa;
+    
+    public Despesa() {
+	}
 
-    public Despesa(int id, String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
+	public Despesa(int id, String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -73,6 +76,10 @@ public class Despesa {
 
 	public void setTipoDespesa(TipoDespesa tipoDespesa) {
 		this.tipoDespesa = tipoDespesa;
+	}
+	
+	public void setTipoDespesa2(Object tipoDespesa) {
+		this.tipoDespesa = (TipoDespesa) tipoDespesa;
 	}
 
 	@Override

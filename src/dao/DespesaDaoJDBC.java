@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import db.DB;
 import db.DbException;
 import models.Despesa;
-import utils.enuns.TipoDespesa;
 
 public class DespesaDaoJDBC implements DespesaDao {
 	private Connection conn;
@@ -37,7 +37,7 @@ public class DespesaDaoJDBC implements DespesaDao {
 			
 			st.setDouble(4, obj.getValorDespesa());
 			
-			st.setTipoDespesa(5, obj.getTipoDespesa());
+			st.setObject(5, obj.getTipoDespesa());
 			
 			int rowsAffected = st.executeUpdate();
 			
@@ -78,7 +78,7 @@ public class DespesaDaoJDBC implements DespesaDao {
 			
 			st.setDouble(4, obj.getValorDespesa());
 			
-			st.setTipoDespesa(5, obj.getTipoDespesa());
+			st.setObject(5, obj.getTipoDespesa());
 			
 			st.executeUpdate();
 		}
@@ -110,11 +110,63 @@ public class DespesaDaoJDBC implements DespesaDao {
 	
 	@Override
 	public Despesa findById(Integer id) {
-		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("SELECT * FROM despesa WHERE id = ?");
+			
+			st.setInt(1, id);
+			
+			rs = st.executeQuery();
+			
+			if(rs.next()) {
+				Despesa obj = new Despesa();
+				
+				obj.setId(rs.getInt("id"));
+				
+				obj.setNome(rs.getString("nome"));
+				
+				return obj;
+			}
+			return null;
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
 	}
 	
 	@Override
 	public List<Despesa> findAll(){
-		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("SELECT * FROM despesa ORDER BY nome");
+			
+			rs = st.executeQuery();
+			
+			List<Despesa> listaDeDespesas = new ArrayList<>();
+			
+			while(rs.next()) {
+				Despesa obj = new Despesa();
+				
+				obj.setId(rs.getInt("id"));
+				
+				obj.setNome(rs.getString("nome"));
+				
+				listaDeDespesas.add(obj);
+			}
+			return listaDeDespesas;
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
 	}
 }

@@ -67,6 +67,10 @@ public class Meta {
 	public void setTipo(TipoMeta tipo) {
 		this.tipo = tipo;
 	}
+	
+	public void setTipo2(Object tipoMeta) {
+		this.tipo = (TipoMeta) tipoMeta;
+	}
 
 	public double getValorNecessario() {
 		return valorNecessario;
