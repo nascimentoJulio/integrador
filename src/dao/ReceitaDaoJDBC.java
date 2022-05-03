@@ -192,12 +192,12 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 			Map<String, Usuario> map = new HashMap<>();
 			
 			while(rs.next()) {
-				Usuario usuario = map.get(rs.getString("email_usuario"));
+				Usuario usuario = map.get(rs.getString("email"));
 				
 				if(usuario == null) {
 					usuario = instanciarUsuario(rs);
 					
-					map.put(rs.getString("email_usuario"), usuario);
+					map.put(rs.getString("email"), usuario);
 				}
 				Receita receita = instanciarReceita(rs, usuario);
 				
@@ -223,7 +223,7 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 					"SELECT receita.*, usuario.nome "
 					+ "FROM receita INNER JOIN usuario "
 					+ "ON receita.email_usuario = usuario.email "
-					+ "WHERE email_usuario = ? "
+					+ "WHERE email = ? "
 					+ "ORDER BY nome");
 			
 			st.setString(1, usuario.getEmail());
@@ -235,12 +235,12 @@ public class ReceitaDaoJDBC implements ReceitaDao {
 			Map<String, Usuario> map = new HashMap<>();
 			
 			while(rs.next()) {
-				Usuario usuario1 = map.get(rs.getString("email_usuario"));
+				Usuario usuario1 = map.get(rs.getString("email"));
 				
 				if(usuario1 == null) {
 					usuario = instanciarUsuario(rs);
 					
-					map.put(rs.getString("email_usuario"), usuario1);
+					map.put(rs.getString("email"), usuario1);
 				}
 				Receita receita1 = instanciarReceita(rs, usuario1);
 				

@@ -1,4 +1,6 @@
 /dao/
+/application/
 /db/
 /models/
+/repository/
 /utils/

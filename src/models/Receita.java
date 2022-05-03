@@ -19,18 +19,12 @@ public class Receita {
     
     private Usuario usuario;
     
-    public Receita() {
+    public Receita(){
 	}
 
-<<<<<<< HEAD
-    private Usuario usuario;
-
-    public Receita( TipoReceita tipoReceita, double valorReceita, LocalDate dataRecebimento, String nome, String descricao) {
-=======
 	public Receita(int id, TipoReceita tipoReceita, double valorReceita, Date dataRecebimento, String nome, String descricao,
 			Usuario usuario) {
         this.id = id;
->>>>>>> 77425816e541634483ad646228b69d1603d64add
         this.tipoReceita = tipoReceita;
         this.valorReceita = valorReceita;
         this.dataRecebimento = dataRecebimento;
