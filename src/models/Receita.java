@@ -17,8 +17,9 @@ public class Receita {
 
     private String descricao;
 
-    public Receita(int id, TipoReceita tipoReceita, double valorReceita, LocalDate dataRecebimento, String nome, String descricao) {
-        this.id = id;
+    private Usuario usuario;
+
+    public Receita( TipoReceita tipoReceita, double valorReceita, LocalDate dataRecebimento, String nome, String descricao) {
         this.tipoReceita = tipoReceita;
         this.valorReceita = valorReceita;
         this.dataRecebimento = dataRecebimento;
