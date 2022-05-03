@@ -25,26 +25,13 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 		
 		try {
 			st = conn.prepareStatement(
-					"INSERT INTO usuario (email, senha) VALUES (?, ?)",
-					Statement.RETURN_GENERATED_KEYS);
+					"INSERT INTO usuario (email, senha) VALUES (?, ?)");
 			
 			st.setString(1, obj.getEmail());
 			
 			st.setString(2, obj.getSenha());
 			
-			int rowsAffected = st.executeUpdate();
-			
-			if(rowsAffected > 0) {
-				ResultSet rs = st.getGeneratedKeys();
-				while(rs.next()) {
-					int id = rs.getInt(1);
-					obj.setId(id);
-				}
-				DB.closeResultSet(rs);
-			}
-			else {
-				throw new DbException("Unexpected error! No rows affected!");
-			}
+			st.executeUpdate();
 		}
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
@@ -60,13 +47,11 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 		
 		try {
 			st = conn.prepareStatement(
-					"UPDATE usuario SET email = ?, senha = ? WHERE id = ?");
+					"UPDATE usuario SET senha = ? WHERE email = ?");
 			
-			st.setString(1, obj.getEmail());
+			st.setString(1, obj.getSenha());
 			
-			st.setString(2, obj.getSenha());
-			
-			st.setInt(3, obj.getId());
+			st.setString(2, obj.getEmail());
 			
 			st.executeUpdate();
 		}
@@ -79,13 +64,13 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 	}
 	
 	@Override
-	public void deleteById(Integer id) {
+	public void deleteByEmail(String email) {
 		PreparedStatement st = null;
 		
 		try {
-			st = conn.prepareStatement("DELETE FROM usuario WHERE id = ?");
+			st = conn.prepareStatement("DELETE FROM usuario WHERE email = ?");
 			
-			st.setInt(1, id);
+			st.setString(1, email);
 			
 			st.executeUpdate();
 		}
@@ -98,15 +83,15 @@ public class UsuarioDaoJDBC implements UsuarioDao {
 	}
 	
 	@Override
-	public Usuario findById(Integer id) {
+	public Usuario findByEmail(String email) {
 		PreparedStatement st = null;
 		
 		ResultSet rs = null;
 		
 		try {
-			st = conn.prepareStatement("SELECT * FROM usuario WHERE id = ?");
+			st = conn.prepareStatement("SELECT * FROM usuario WHERE email = ?");
 			
-			st.setInt(1, id);
+			st.setString(1, email);
 			
 			rs = st.executeQuery();
 			

@@ -10,9 +10,9 @@ public interface UsuarioDao {
 	
 	public void update(Usuario obj);
 	
-	public void deleteById(Integer id);
+	public void deleteByEmail(String email);
 	
-	public Usuario findById(Integer id);
+	public Usuario findByEmail(String email);
 	
 	public List<Usuario> findAll();
 }

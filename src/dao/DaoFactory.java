@@ -11,4 +11,8 @@ public class DaoFactory {
 	public static DespesaDao createDespesaDao() {
 		return new DespesaDaoJDBC(DB.getConnection());
 	}
+	
+	public static ReceitaDao createReceitaDao() {
+		return new ReceitaDaoJDBC(DB.getConnection());
+	}
 }

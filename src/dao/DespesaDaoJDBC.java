@@ -25,21 +25,19 @@ public class DespesaDaoJDBC implements DespesaDao {
 		
 		try {
 			st = conn.prepareStatement(
-					"INSERT INTO despesa (id, nome, descricao, data_despesa, valor_despesa, tipo_despesa) " 
-					+ "VALUES (?, ?, ?, ?, ?, ?)",
+					"INSERT INTO despesa (nome, descricao, data_despesa, valor_despesa, tipo_despesa) " 
+					+ "VALUES (?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
-			st.setInt(1, obj.getId());
+			st.setString(1, obj.getNome());
 			
-			st.setString(2, obj.getNome());
+			st.setString(2, obj.getDescricao());
 			
-			st.setString(3, obj.getDescricao());
+			st.setDate(3, obj.getDataDespesa());
 			
-			st.setDate(4, obj.getDataDespesa());
+			st.setDouble(4, obj.getValorDespesa());
 			
-			st.setDouble(5, obj.getValorDespesa());
-			
-			st.setTipoDespesa(6, obj.getTipoDespesa());
+			st.setTipoDespesa(5, obj.getTipoDespesa());
 			
 			int rowsAffected = st.executeUpdate();
 			
@@ -52,7 +50,7 @@ public class DespesaDaoJDBC implements DespesaDao {
 				DB.closeResultSet(rs);
 			}
 			else {
-				throw new DbException("Unexpected error! No rows affected!");
+				throw new DbException("Erro inesperado! Nenhuma rows affected!");
 			}
 		}
 		catch(SQLException e) {
@@ -65,12 +63,49 @@ public class DespesaDaoJDBC implements DespesaDao {
 	
 	@Override
 	public void update(Despesa obj) {
-		
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement(
+					"UPDATE despesa "
+					+ "SET nome = ?, descricao = ?, data_despesa = ?, valor_despesa = ?, tipo_despesa = ? "
+					+ "WHERE id = ?");
+			
+			st.setString(1, obj.getNome());
+			
+			st.setString(2, obj.getDescricao());
+			
+			st.setDate(3, obj.getDataDespesa());
+			
+			st.setDouble(4, obj.getValorDespesa());
+			
+			st.setTipoDespesa(5, obj.getTipoDespesa());
+			
+			st.executeUpdate();
+		}
+		catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+		}
 	}
 	
 	@Override
 	public void deleteById(Integer id) {
-		
+			PreparedStatement st = null;
+			try {
+				st = conn.prepareStatement("DELETE FROM despesa WHERE id = ?");
+				
+				st.setInt(1, id);
+				
+				st.executeUpdate();
+			}
+			catch(SQLException e) {
+				throw new DbException(e.getMessage());
+			}
+			finally {
+				DB.closeStatement(st);
+			}
 	}
 	
 	@Override
