@@ -15,4 +15,13 @@ public class DaoFactory {
 	public static ReceitaDao createReceitaDao() {
 		return new ReceitaDaoJDBC(DB.getConnection());
 	}
+	
+	public static InvestimentoDao createInvestimentoDao() {
+		return new InvestimentoDaoJDBC(DB.getConnection());
+	}
+	
+	public static MetaDao createMetaDao() {
+		return new MetaDaoJDBC(DB.getConnection());
+	}
+	
 }

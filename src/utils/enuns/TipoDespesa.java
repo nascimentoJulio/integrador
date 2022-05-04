@@ -1,6 +1,6 @@
 package utils.enuns;
 
 public enum TipoDespesa {
-    FIXA, ENTRETENIMENTO, ESTUDO, OUTRO;
+    FIXA, ENTRETENIMENTO, ESTUDO, TEMPORARIA, ALIMENTACAO, LOCOMOCAO, OUTROS
 
 }

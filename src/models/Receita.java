@@ -19,7 +19,7 @@ public class Receita {
     
     private Usuario usuario;
     
-    public Receita() {
+    public Receita(){
 	}
 
 	public Receita(int id, TipoReceita tipoReceita, double valorReceita, Date dataRecebimento, String nome, String descricao,
@@ -47,6 +47,10 @@ public class Receita {
 
 	public void setTipoReceita(TipoReceita tipoReceita) {
 		this.tipoReceita = tipoReceita;
+	}
+	
+	public void setTipoReceita2(Object tipoReceita) {
+		this.tipoReceita = (TipoReceita) tipoReceita;
 	}
 
 	public double getValorReceita() {
