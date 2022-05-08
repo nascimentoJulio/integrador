@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cache {
-    private static final Map<String, String> cache = new HashMap();
+    private static String TOKEN;
 
-    public void salvarEmail(String token, String email) {
-        cache.put(token, email);
+    public static void salvarTokem(String token) {
+        TOKEN = token;
     }
 
-    public String obterEmail(String token){
-        return cache.get(token);
+    public static String obterToken() {
+        return TOKEN;
     }
 }

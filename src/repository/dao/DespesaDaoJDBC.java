@@ -1,4 +1,4 @@
-package dao;
+package repository.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.DB;
-import db.DbException;
+import repository.db.DB;
+import repository.db.DbException;
 import models.Despesa;
+import utils.enuns.TipoDespesa;
 
 public class DespesaDaoJDBC implements DespesaDao {
 	private Connection conn;
@@ -25,8 +26,8 @@ public class DespesaDaoJDBC implements DespesaDao {
 		
 		try {
 			st = conn.prepareStatement(
-					"INSERT INTO despesa (nome, descricao, data_despesa, valor_despesa, tipo_despesa) " 
-					+ "VALUES (?, ?, ?, ?, ?)",
+					"INSERT INTO despesa (nome, descricao, data_despesa, valor_despesa, tipo_despesa, email_usuario) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
 			st.setString(1, obj.getNome());
@@ -37,7 +38,9 @@ public class DespesaDaoJDBC implements DespesaDao {
 			
 			st.setDouble(4, obj.getValorDespesa());
 			
-			st.setObject(5, obj.getTipoDespesa());
+			st.setObject(5, obj.getTipoDespesa().toString());
+
+			st.setString(6,obj.getEmailUsuario());
 			
 			int rowsAffected = st.executeUpdate();
 			
@@ -144,7 +147,7 @@ public class DespesaDaoJDBC implements DespesaDao {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement("SELECT * FROM despesa ORDER BY nome");
+			st = conn.prepareStatement("SELECT * FROM despesa ORDER BY nome ");
 			
 			rs = st.executeQuery();
 			
@@ -156,7 +159,14 @@ public class DespesaDaoJDBC implements DespesaDao {
 				obj.setId(rs.getInt("id"));
 				
 				obj.setNome(rs.getString("nome"));
-				
+
+				obj.setDescricao(rs.getString("descricao"));
+
+				obj.setDataDespesa(rs.getDate("data_despesa"));
+
+				obj.setValorDespesa(rs.getDouble("valor_despesa"));
+
+				obj.setTipoDespesa(TipoDespesa.valueOf(rs.getString("tipo_despesa")));
 				listaDeDespesas.add(obj);
 			}
 			return listaDeDespesas;

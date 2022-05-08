@@ -1,4 +1,4 @@
-package dao;
+package repository.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import db.DB;
-import db.DbException;
+import repository.db.DB;
+import repository.db.DbException;
 import models.Meta;
 import models.Usuario;
 
@@ -41,8 +41,7 @@ public class MetaDaoJDBC implements MetaDao {
 		Usuario obj = new Usuario();
 		
 		obj.setEmail(rs.getString("email"));
-		obj.setNome(rs.getString("nome"));
-		
+
 		return obj;
 	}
 	

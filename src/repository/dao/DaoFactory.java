@@ -1,6 +1,6 @@
-package dao;
+package repository.dao;
 
-import db.DB;
+import repository.db.DB;
 
 public class DaoFactory {
 	

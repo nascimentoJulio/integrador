@@ -10,10 +10,9 @@ public class Conversores {
        return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public static void converterFormatoDataEng(String data){
+    public static LocalDate converterFormatoDataEng(String data){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate date = LocalDate.parse(data, formato);
-        System.out.println(date);
+        return LocalDate.parse(data, formato);
     }
 
 }

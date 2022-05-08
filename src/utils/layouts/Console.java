@@ -53,7 +53,38 @@ public class Console {
         imprimirTracos();
     }
 
-    
+
+    public static void imprimirMenuDespesa() {
+        imprimirTracos();
+        System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("| [1] Cria despesa                         |");
+        System.out.println("| [2] Atualizar despesa                    |");
+        System.out.println("| [3] Listar todas despesa                 |");
+        System.out.println("| [4] Listar despesa por id                |");
+        System.out.println("| [5] Deletar despesa                      |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+
+    }
+
+    public static void imprimirMenuLogado() {
+        imprimirTracos();
+        System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("| [1] Menu despesas                        |");
+        System.out.println("| [2] Voltar                               |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+
+    }
+
     
     
     

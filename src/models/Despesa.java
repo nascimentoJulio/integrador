@@ -17,18 +17,29 @@ public class Despesa {
     private double valorDespesa;
 
     private TipoDespesa tipoDespesa;
+
+	private String emailUsuario;
     
     public Despesa() {
 	}
 
-	public Despesa(int id, String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
-        this.id = id;
+	public Despesa(String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa, String emailUsuario) {
         this.nome = nome;
         this.descricao = descricao;
         this.dataDespesa = dataDespesa;
         this.valorDespesa = valorDespesa;
         this.tipoDespesa = tipoDespesa;
-    }
+		this.emailUsuario = emailUsuario;
+	}
+
+	public Despesa(int id,String nome, String descricao, Date dataDespesa, double valorDespesa, TipoDespesa tipoDespesa) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.dataDespesa = dataDespesa;
+		this.valorDespesa = valorDespesa;
+		this.tipoDespesa = tipoDespesa;
+	}
 
 	public int getId() {
 		return id;
@@ -78,14 +89,18 @@ public class Despesa {
 		this.tipoDespesa = tipoDespesa;
 	}
 	
-	public void setTipoDespesa2(Object tipoDespesa) {
-		this.tipoDespesa = (TipoDespesa) tipoDespesa;
-	}
 
 	@Override
 	public String toString() {
-		return "Despesa [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", dataDespesa=" + dataDespesa
-				+ ", valorDespesa=" + valorDespesa + ", tipoDespesa=" + tipoDespesa + "]";
+		return "{\nid=" + id + ",\nnome=" + nome + ",\ndescricao=" + descricao + ",\ndataDespesa=" + dataDespesa
+				+ ",\nvalorDespesa=" + valorDespesa + ",\ntipoDespesa=" + tipoDespesa + "\n}";
 	}
-    
+
+	public String getEmailUsuario() {
+		return emailUsuario;
+	}
+
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
+	}
 }
