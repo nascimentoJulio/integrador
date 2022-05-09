@@ -71,6 +71,57 @@ public class Console {
 
     }
 
+    public static void imprimirMenuMeta() {
+        imprimirTracos();
+        System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("| [1] Cria meta                            |");
+        System.out.println("| [2] Atualizar meta                       |");
+        System.out.println("| [3] Listar todas metas                   |");
+        System.out.println("| [4] Listar meta por id                   |");
+        System.out.println("| [5] Deletar meta                      |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+
+    }
+
+    public static void imprimirMenuReceita() {
+        imprimirTracos();
+        System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("| [1] Cria receita                         |");
+        System.out.println("| [2] Atualizar receita                    |");
+        System.out.println("| [3] Listar todas receita                 |");
+        System.out.println("| [4] Listar receita por id                |");
+        System.out.println("| [5] Deletar receita                      |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+
+    }
+
+    public static void imprimirMenuInvestimento() {
+        imprimirTracos();
+        System.out.println("|                 GAXTOS                   |");
+        imprimirTracos();
+        imprimirLaterais();
+        imprimirLaterais();
+        System.out.println("| [1] Cria investimento                    |");
+        System.out.println("| [2] Atualizar investimento               |");
+        System.out.println("| [3] Listar todas investimento            |");
+        System.out.println("| [4] Listar investimento por id           |");
+        System.out.println("| [5] Deletar investimento                 |");
+        imprimirLaterais();
+        imprimirLaterais();
+        imprimirTracos();
+
+    }
+
     public static void imprimirMenuLogado() {
         imprimirTracos();
         System.out.println("|                 GAXTOS                   |");

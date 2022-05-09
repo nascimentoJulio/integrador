@@ -33,7 +33,7 @@ public class MetaServiceImpl implements MetaService {
   }
 
   @Override
-  public void atualizarMeta(Meta meta) {
+  public void atualizarMeta(int id,Meta meta) {
     try {
       if (meta.getNome().isEmpty()
               || meta.getDescricao().isEmpty()
@@ -45,6 +45,7 @@ public class MetaServiceImpl implements MetaService {
       }  else if (this.metaDao.findById(meta.getId(), meta.getEmailUsuario()) == null) {
         System.out.println("investimento não encontrada");
       } else {
+        meta.setId(id);
         this.metaDao.update(meta);
       }
     } catch (Exception e) {
@@ -78,7 +79,7 @@ public class MetaServiceImpl implements MetaService {
   }
 
   @Override
-  public void deletarInvestimento(int id) {
+  public void deletarMeta(int id) {
     try {
       this.metaDao.deleteById(id);
       System.out.println("Deletado com sucesso");

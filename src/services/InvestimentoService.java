@@ -6,7 +6,7 @@ import java.util.List;
 public interface InvestimentoService {
     void criarInvestimento(Investimento investimento);
 
-    void atualizarInvestimento(Investimento investimento);
+    void atualizarInvestimento(int id ,Investimento investimento);
 
     List<Investimento> listarInvestimento(String email);
 

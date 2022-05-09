@@ -35,7 +35,7 @@ public class InvestimentoServiceImpl implements InvestimentoService {
     }
 
     @Override
-    public void atualizarInvestimento(Investimento investimento) {
+    public void atualizarInvestimento(int id ,Investimento investimento) {
         try {
             if (investimento.getNome().isEmpty()
                     || investimento.getDescricao().isEmpty()
@@ -47,6 +47,7 @@ public class InvestimentoServiceImpl implements InvestimentoService {
             } else if (this.investimentoDao.findById(investimento.getId(), investimento.getEmailUsuario()) == null) {
                 System.out.println("investimento não encontrada");
             } else {
+                investimento.setId(id);
                 this.investimentoDao.update(investimento);
             }
         } catch (Exception e) {

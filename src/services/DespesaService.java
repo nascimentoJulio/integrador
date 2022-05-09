@@ -6,7 +6,7 @@ import java.util.List;
 public interface DespesaService {
     void criarDespesa(Despesa despesa);
 
-    void atualizarDespesa(Despesa despesa);
+    void atualizarDespesa(int id ,Despesa despesa);
 
     List<Despesa> listarDespesas();
 

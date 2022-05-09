@@ -74,7 +74,7 @@ public class ReceitaServiceImpl implements ReceitaService {
   }
 
   @Override
-  public void deletarInvestimento(int id) {
+  public void deletarReceita(int id) {
     try {
       this.receitaDao.deleteById(id);
       System.out.println("Deletado com sucesso");

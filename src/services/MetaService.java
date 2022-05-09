@@ -8,11 +8,11 @@ public interface MetaService {
 
   void criarMeta(Meta meta);
 
-  void atualizarMeta(Meta meta);
+  void atualizarMeta(int idMeta,Meta meta);
 
   List<Meta> listarMeta(String email);
 
   Meta obterMetaById(int id, String email);
 
-  void deletarInvestimento(int id);
+  void deletarMeta(int id);
 }

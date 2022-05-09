@@ -34,7 +34,7 @@ public class DespesaServiceImpl implements DespesaService {
     }
 
     @Override
-    public void atualizarDespesa(Despesa despesa) {
+    public void atualizarDespesa(int id, Despesa despesa) {
         try {
             if (despesa.getNome().isEmpty()
                     || despesa.getDescricao().isEmpty()
@@ -44,6 +44,7 @@ public class DespesaServiceImpl implements DespesaService {
             } else if (this.despesaDao.findById(despesa.getId()) == null) {
                 System.out.println("despesa não encontrada");
             } else {
+                despesa.setId(id);
                 this.despesaDao.update(despesa);
             }
         } catch (Exception e) {

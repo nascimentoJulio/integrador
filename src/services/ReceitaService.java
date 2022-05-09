@@ -15,5 +15,5 @@ public interface ReceitaService {
 
   Receita obterReceitaById(int id, String email);
 
-  void deletarInvestimento(int id);
+  void deletarReceita(int id);
 }
