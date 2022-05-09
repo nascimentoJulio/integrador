@@ -7,13 +7,13 @@ import models.Despesa;
 
 public interface DespesaDao {
 	
-	public void insert(Despesa obj);
+	void insert(Despesa obj);
 	
-	public void update(Despesa obj);
+	void update(Despesa obj);
 	
-	public void deleteById(Integer id);
+	void deleteById(Integer id);
 	
-	public Despesa findById(Integer id);
+	Despesa findById(Integer id);
 	
-	public List<Despesa> findAll();
+	List<Despesa> findAll();
 }

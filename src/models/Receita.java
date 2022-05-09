@@ -17,21 +17,21 @@ public class Receita {
 
     private String descricao;
     
-    private Usuario usuario;
+    private String emailUsuario;
     
     public Receita(){
 	}
 
 	public Receita(int id, TipoReceita tipoReceita, double valorReceita, Date dataRecebimento, String nome, String descricao,
-			Usuario usuario) {
+				   String emailUsuaro) {
         this.id = id;
         this.tipoReceita = tipoReceita;
         this.valorReceita = valorReceita;
         this.dataRecebimento = dataRecebimento;
         this.nome = nome;
         this.descricao = descricao;
-        this.usuario = usuario;
-    }
+		this.emailUsuario = emailUsuaro;
+	}
 
 	public int getId() {
 		return id;
@@ -84,19 +84,19 @@ public class Receita {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	@Override
 	public String toString() {
 		return "Receita [id=" + id + ", tipoReceita=" + tipoReceita + ", valorReceita=" + valorReceita
 				+ ", dataRecebimento=" + dataRecebimento + ", nome=" + nome + ", descricao=" + descricao + "]";
 	}
-    
+
+	public String getEmailUsuario() {
+		return emailUsuario;
+	}
+
+	public void setEmailUsuario(String emailUsuaro) {
+		this.emailUsuario = emailUsuaro;
+	}
 }

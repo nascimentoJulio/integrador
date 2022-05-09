@@ -19,10 +19,13 @@ public class Meta {
     
     private Date dataConclusao;
     
-    private Usuario usuario;
+    private String emailUsuario;
+
+	public Meta() {
+	}
 
 	public Meta(int id, String nome, String descricao, TipoMeta tipo, double valorNecessario, Date dataInicio,
-			Date dataConclusao, Usuario usuario) {
+				Date dataConclusao, String emailUsuario) {
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -30,11 +33,9 @@ public class Meta {
 		this.valorNecessario = valorNecessario;
 		this.dataInicio = dataInicio;
 		this.dataConclusao = dataConclusao;
-		this.usuario = usuario;
+		this.emailUsuario = emailUsuario;
 	}
 
-	public Meta() {
-	}
 
 	public int getId() {
 		return id;
@@ -96,13 +97,11 @@ public class Meta {
 		this.dataConclusao = dataConclusao;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getEmailUsuario() {
+		return emailUsuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
 	}
-    
-    
 }

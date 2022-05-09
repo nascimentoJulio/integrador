@@ -13,9 +13,7 @@ public interface ReceitaDao {
 	
 	public void deleteById(Integer id);
 	
-	public Receita findById(Integer id);
+	public Receita findById(Integer id, String email);
 	
-	public List<Receita> findAll();
-	
-	public List<Receita> findByUsuario(Usuario usuario);
+	public List<Receita> findAll(String email);
 }

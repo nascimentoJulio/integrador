@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class DespesaServiceImpl implements DespesaService {
+
     private DespesaDao despesaDao;
 
     public DespesaServiceImpl(DespesaDao despesaDao) {
@@ -16,13 +17,37 @@ public class DespesaServiceImpl implements DespesaService {
     }
 
     @Override
-    public void CriarDespesa(Despesa despesa) {
+    public void criarDespesa(Despesa despesa) {
         try {
+            if (despesa.getNome().isEmpty()
+                    || despesa.getDescricao().isEmpty()
+                    || despesa.getDataDespesa() == null
+                    || despesa.getValorDespesa() == 0) {
+                System.out.println("Dados obrigatorios não iformados");
+            }
             despesaDao.insert(despesa);
             System.out.println("Criado com sucesso!");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Não foi possivel criar a despesa!");
+        }
+    }
+
+    @Override
+    public void atualizarDespesa(Despesa despesa) {
+        try {
+            if (despesa.getNome().isEmpty()
+                    || despesa.getDescricao().isEmpty()
+                    || despesa.getDataDespesa() == null
+                    || despesa.getValorDespesa() == 0) {
+                System.out.println("Dados obrigatorios não iformados");
+            } else if (this.despesaDao.findById(despesa.getId()) == null) {
+                System.out.println("despesa não encontrada");
+            } else {
+                this.despesaDao.update(despesa);
+            }
+        } catch (Exception e) {
+            System.out.println("Não foi possivel atualizar a tarefa");
         }
     }
 
@@ -52,9 +77,10 @@ public class DespesaServiceImpl implements DespesaService {
     }
 
     @Override
-    public void DeletarDespesa(int id) {
+    public void deletarDespesa(int id) {
         try {
             despesaDao.deleteById(id);
+            System.out.println("Deletado com sucesso");
         } catch (Exception e) {
             System.out.println("Não foi possivel deletar a despesa");
         }

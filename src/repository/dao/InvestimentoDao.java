@@ -3,19 +3,17 @@ package repository.dao;
 import java.util.List;
 
 import models.Investimento;
-import models.Usuario;
 
 public interface InvestimentoDao {
 
-	public void insert(Investimento obj);
-	
-	public void update(Investimento obj);
-	
-	public void deleteById(Integer id);
-	
-	public Investimento findById(Integer id);
-	
-	public List<Investimento> findAll();
-	
-	public List<Investimento> findByUsuario(Usuario usuario);
+  void insert(Investimento obj);
+
+  void update(Investimento obj);
+
+  void deleteById(Integer id);
+
+  Investimento findById(Integer id, String email);
+
+  List<Investimento> findAll(String email);
+
 }

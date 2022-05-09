@@ -66,7 +66,7 @@ public class Main {
         int escolha = input.nextInt();
         switch (escolha) {
             case 1 -> {
-                despesaService.CriarDespesa(criarDespesa());
+                despesaService.criarDespesa(criarDespesa());
                 acaoDespesa();
             }
             case 2 -> acaoCadastro();
@@ -79,6 +79,11 @@ public class Main {
             case 4 -> {
                 System.out.println("Informe o id da despesa: ");
                 System.out.println(despesaService.obterDespesaById(input.nextInt()).toString());
+                acaoDespesa();
+            }
+            case 5 -> {
+                System.out.println("Informe o id da despesa: ");
+                despesaService.deletarDespesa(input.nextInt());
                 acaoDespesa();
             }
             default -> acaoDespesa();

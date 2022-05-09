@@ -13,10 +13,8 @@ public interface MetaDao {
 	
 	public void deleteById(Integer id);
 	
-	public Meta findById(Integer id);
+	public Meta findById(Integer id, String email);
 	
-	public List<Meta> findAll();
-	
-	public List<Meta> findByUsuario(Usuario usuario);
-	
+	public List<Meta> findAll(String email);
+
 }

@@ -82,6 +82,8 @@ public class DespesaDaoJDBC implements DespesaDao {
 			st.setDouble(4, obj.getValorDespesa());
 			
 			st.setObject(5, obj.getTipoDespesa());
+
+			st.setInt(6, obj.getId());
 			
 			st.executeUpdate();
 		}

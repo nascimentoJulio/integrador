@@ -20,10 +20,10 @@ public class Investimento {
     
     private String descricao;
     
-    private Usuario usuario;
+    private String emailUsuario;
 
-    public Investimento(int id, TipoInvestimento tipoInvestimento, double valorInvestido, double taxaRendimento,
-    		Date dataInvestimento, String nome, String descricao, Usuario usuario) {
+	public Investimento(int id, TipoInvestimento tipoInvestimento, double valorInvestido, double taxaRendimento,
+						Date dataInvestimento, String nome, String descricao, String emailUsuario) {
         this.id = id;
         this.tipoInvestimento = tipoInvestimento;
         this.valorInvestido = valorInvestido;
@@ -31,7 +31,7 @@ public class Investimento {
         this.dataInvestimento = dataInvestimento;
         this.nome = nome;
         this.descricao = descricao;
-        this.usuario = usuario;
+        this.emailUsuario = emailUsuario;
     }
 
 	public Investimento() {
@@ -97,14 +97,14 @@ public class Investimento {
 		this.descricao = descricao;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getEmailUsuario() {
+		return emailUsuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
 	}
-    
-    
+
+
 }
 
